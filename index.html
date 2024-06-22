@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <link rel="icon" type="image/svg+xml" href="/icon.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -10,10 +10,26 @@
       href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap"
       rel="stylesheet"
     />
-    <title>Vite + TS</title>
+    <title>Social Media Dashboard</title>
   </head>
   <body>
-    <div class="test"></div>
+    <header class="header">
+      <div class="container">
+        <div class="heading">
+          <div class="title">
+            <h1>Social Media Dashboard</h1>
+            <p>Total Followers: 23&comma;004</p>
+          </div>
+
+          <div class="theme-switcher" data-change-theme>
+            <span class="theme-label">Dark Mode</span>
+            <div class="toggler">
+              <span class="switch" data-switch></span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
     <script type="module" src="/src/main.ts"></script>
   </body>
 </html>

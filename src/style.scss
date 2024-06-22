@@ -1,1 +1,163 @@
-@use "./scss/base" as *;
+*,
+*::after,
+*::before {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --overview-card-headings: 0.875rem;
+  --Facebook: hsl(208, 92%, 53%);
+  --Twitter: hsl(203, 89%, 53%);
+  --Instagram: hsl(37, 97%, 70%), hsl(329, 70%, 58%);
+  --YouTube: hsl(348, 97%, 39%);
+  --green-percentage-change-text: hsl(163, 72%, 41%);
+  --red-percentage-change-text: hsl(356, 69%, 56%);
+
+  &,
+  &.light {
+    --toggler-background: hsl(230, 22%, 74%);
+    --bgc: hsl(0, 0%, 100%);
+    --header-bgc: hsl(225, 100%, 98%);
+    --card-bgc: hsl(227, 47%, 96%);
+    --text-primary: hsl(230, 17%, 14%);
+    --text-secondary: hsl(228, 12%, 44%);
+  }
+
+  &.dark {
+    --toggler-background: linear-gradient(
+      to right,
+      hsl(210, 78%, 56%),
+      hsl(146, 68%, 55%)
+    );
+    --bgc: hsl(230, 17%, 14%);
+    --header-bgc: hsl(232, 19%, 15%);
+    --card-bgc: hsl(228, 28%, 20%);
+    --text-primary: white;
+    --text-secondary: hsl(228, 34%, 66%);
+  }
+}
+
+body {
+  font-size: 14px;
+  font-family: "Inter", sans-serif;
+  background-color: var(--bgc);
+  color: var(--text-primary);
+}
+
+.container {
+  width: 100%;
+  padding-inline: 1.25rem;
+  margin: auto;
+
+  // Medium devices (tablets, 768px and up)
+  @media (min-width: 768px) {
+    width: 720px;
+  }
+
+  // Large devices (desktops, 992px and up)
+  @media (min-width: 992px) {
+    width: 960px;
+  }
+
+  // Extra large devices (large desktops, 1200px and up)
+  @media (min-width: 1200px) {
+    width: 1140px;
+  }
+
+  // Extra large screens
+  @media (min-width: 1400px) {
+    width: 1320px;
+  }
+}
+
+header {
+  background-color: var(--header-bgc);
+  padding-top: 2rem;
+  border-bottom-right-radius: 1.25rem;
+  border-bottom-left-radius: 1.25rem;
+
+  .heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 10rem;
+
+    .title {
+      h1 {
+        font-size: 2rem;
+      }
+
+      p {
+        margin-top: 5px;
+      }
+    }
+
+    p,
+    .theme-label {
+      color: var(--text-secondary);
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      font-size: 1rem;
+    }
+
+    .theme-switcher {
+      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
+      cursor: pointer;
+
+      .toggler {
+        width: 40px;
+        height: 22px;
+        border-radius: 9999px;
+        display: flex;
+        align-items: center;
+        padding-inline: 2px;
+        background: var(--toggler-background);
+
+        .switch {
+          &.toggle {
+            transform: translateX(17px);
+          }
+          width: 18px;
+          height: 18px;
+          border-radius: 50%;
+          -webkit-border-radius: 50%;
+          -moz-border-radius: 50%;
+          -ms-border-radius: 50%;
+          -o-border-radius: 50%;
+          background-color: var(--header-bgc);
+          transition: 0.4s ease;
+          -webkit-transition: 0.4s ease;
+          -moz-transition: 0.4s ease;
+          -ms-transition: 0.4s ease;
+          -o-transition: 0.4s ease;
+        }
+      }
+    }
+
+    @media (max-width: 600px) {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 1.5rem;
+
+      > div {
+        align-self: stretch;
+      }
+
+      .title {
+        border-bottom: 1px solid var(--text-secondary);
+
+        h1 {
+          font-size: 1.6rem;
+        }
+
+        p {
+          margin-bottom: 1.5rem;
+        }
+      }
+    }
+  }
+}
