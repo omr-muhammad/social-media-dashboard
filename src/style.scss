@@ -10,7 +10,7 @@
   --overview-card-headings: 0.875rem;
   --Facebook: hsl(208, 92%, 53%);
   --Twitter: hsl(203, 89%, 53%);
-  --Instagram: hsl(37, 97%, 70%), hsl(329, 70%, 58%);
+  --Instagram: linear-gradient(to right, hsl(37, 97%, 70%), hsl(329, 70%, 58%));
   --YouTube: hsl(348, 97%, 39%);
   --green-percentage-change-text: hsl(163, 72%, 41%);
   --red-percentage-change-text: hsl(356, 69%, 56%);
@@ -159,5 +159,110 @@ header {
         }
       }
     }
+  }
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  transform: translateY(-100px);
+  -webkit-transform: translateY(-100px);
+  -moz-transform: translateY(-100px);
+  -ms-transform: translateY(-100px);
+  -o-transform: translateY(-100px);
+
+  .card {
+    // &:hover {
+    //   background-color: var();
+    // }
+
+    &::before {
+      position: absolute;
+      content: "";
+      left: 0;
+      top: -3px;
+      height: 3px;
+      width: 100%;
+      border-top-right-radius: 5px;
+      border-top-left-radius: 5px;
+    }
+
+    &.facebook::before {
+      background: var(--Facebook);
+    }
+
+    &.twitter::before {
+      background: var(--Twitter);
+    }
+
+    &.instagram::before {
+      background-image: var(--Instagram);
+    }
+
+    &.youtube::before {
+      background: var(--YouTube);
+    }
+
+    padding: 1.25rem;
+    background-color: var(--card-bgc);
+    border-bottom-right-radius: 5px;
+    border-bottom-left-radius: 5px;
+    text-align: center;
+    position: relative;
+
+    .username {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      color: var(--text-secondary);
+      font-weight: 700;
+    }
+
+    .followers {
+      text-align: center;
+      margin-block: 1.4rem;
+
+      .followers-number {
+        font: {
+          size: 3rem;
+          weight: 700;
+        }
+      }
+
+      .followers-label {
+        letter-spacing: 3px;
+        color: var(--text-secondary);
+        text-transform: uppercase;
+      }
+    }
+
+    .days {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      font-weight: 700;
+      color: var(--green-percentage-change-text);
+
+      &.red {
+        color: var(--red-percentage-change-text);
+      }
+    }
+  }
+}
+
+@media (max-width: 588px) {
+  header .heading {
+    padding-bottom: 5rem;
+  }
+
+  .cards {
+    transform: translateY(-50px);
+    -webkit-transform: translateY(-50px);
+    -moz-transform: translateY(-50px);
+    -ms-transform: translateY(-50px);
+    -o-transform: translateY(-50px);
   }
 }
