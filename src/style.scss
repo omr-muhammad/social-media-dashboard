@@ -181,11 +181,11 @@ header {
       position: absolute;
       content: "";
       left: 0;
-      top: -3px;
-      height: 3px;
+      top: -4px;
+      height: 4px;
       width: 100%;
-      border-top-right-radius: 5px;
-      border-top-left-radius: 5px;
+      border-top-right-radius: 21px;
+      border-top-left-radius: 21px;
     }
 
     &.facebook::before {
