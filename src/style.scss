@@ -118,8 +118,14 @@ header {
         background: var(--toggler-background);
 
         .switch {
+          transform: translateX(17px);
+
           &.toggle {
-            transform: translateX(17px);
+            transform: translateX(0);
+            -webkit-transform: translateX(0);
+            -moz-transform: translateX(0);
+            -ms-transform: translateX(0);
+            -o-transform: translateX(0);
           }
           width: 18px;
           height: 18px;
