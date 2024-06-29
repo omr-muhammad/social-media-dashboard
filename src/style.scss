@@ -27,6 +27,7 @@
     --bgc: hsl(0, 0%, 100%);
     --header-bgc: hsl(225, 100%, 98%);
     --card-bgc: hsl(227, 47%, 96%);
+    --card-hover-bgc: hsl(227, 47%, 90%);
     --text-primary: hsl(230, 17%, 14%);
     --text-secondary: hsl(228, 12%, 44%);
   }
@@ -40,6 +41,7 @@
     --bgc: hsl(230, 17%, 14%);
     --header-bgc: hsl(232, 19%, 15%);
     --card-bgc: hsl(228, 28%, 20%);
+    --card-hover-bgc: hsl(228, 28%, 27%);
     --text-primary: white;
     --text-secondary: hsl(228, 34%, 66%);
   }
@@ -183,9 +185,9 @@ header {
   -o-transform: translateY(-100px);
 
   .card {
-    // &:hover {
-    //   background-color: var();
-    // }
+    &:hover {
+      background-color: var(--card-hover-bgc);
+    }
 
     &::before {
       position: absolute;
@@ -276,6 +278,10 @@ header {
     margin-bottom: 5rem;
 
     .card {
+      &:hover {
+        background-color: var(--card-hover-bgc);
+      }
+
       display: grid;
       grid-template-columns: auto auto;
       grid-template-rows: auto auto;
